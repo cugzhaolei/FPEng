@@ -1,0 +1,48 @@
+Thu May  7 21:00:20 2020:license key is:VYWX-JWPM-SXXP-TAX5
+
+Thu May  7 21:00:20 2020:license file path is:G:\Development\Application\testface\testface\bin\x64\license.ini
+
+Thu May  7 21:00:20 2020:auth result in dll is success
+
+Thu May  7 21:00:20 2020:db path is:G:\Development\Application\testface\testface\bin\x64\db\face.db and begin create tables
+
+Thu May  7 21:00:21 2020:in sdk init create_db
+
+Thu May  7 21:00:21 2020:out BaiduFaceApi::sdk_init and init success
+
+Thu May  7 21:01:36 2020:license key is:VYWX-JWPM-SXXP-TAX5
+
+Thu May  7 21:01:36 2020:license file path is:G:\Development\Application\testface\testface\bin\x86\license.ini
+
+Thu May  7 21:01:36 2020:auth result in dll is success
+
+Thu May  7 21:01:36 2020:db path is:G:\Development\Application\testface\testface\bin\x86\db\face.db and begin create tables
+
+Thu May  7 21:01:37 2020:in sdk init create_db
+
+Thu May  7 21:01:37 2020:out BaiduFaceApi::sdk_init and init success
+
+Sat May  9 21:14:59 2020:license key is:VYWX-JWPM-SXXP-TAX5
+
+Sat May  9 21:14:59 2020:license file path is:G:\Development\Application\testface\testface\bin\x86\license.ini
+
+Sat May  9 21:14:59 2020:auth result in dll is success
+
+Sat May  9 21:14:59 2020:db path is:G:\Development\Application\testface\testface\bin\x86\db\face.db and db already exist
+
+Sat May  9 21:14:59 2020:in sdk init create_db
+
+Sat May  9 21:14:59 2020:out BaiduFaceApi::sdk_init and init success
+
+Sat May  9 22:05:12 2020:license key is:VYWX-JWPM-SXXP-TAX5
+
+Sat May  9 22:05:12 2020:license file path is:G:\Development\Application\testface\testface\bin\x86\license.ini
+
+Sat May  9 22:05:12 2020:auth result in dll is success
+
+Sat May  9 22:05:12 2020:db path is:G:\Development\Application\testface\testface\bin\x86\db\face.db and db already exist
+
+Sat May  9 22:05:12 2020:in sdk init create_db
+
+Sat May  9 22:05:12 2020:out BaiduFaceApi::sdk_init and init success
+

@@ -1,0 +1,7 @@
+G:\Development\Application\testface\testface\bin\x64\testface.exe.config
+G:\Development\Application\testface\testface\bin\x64\testface.exe
+G:\Development\Application\testface\testface\bin\x64\testface.pdb
+G:\Development\Application\testface\testface\obj\x64\Release\testface.csproj.CoreCompileInputs.cache
+G:\Development\Application\testface\testface\obj\x64\Release\testface.exe
+G:\Development\Application\testface\testface\obj\x64\Release\testface.pdb
+G:\Development\Application\testface\testface\obj\x64\Release\testface.csprojAssemblyReference.cache
