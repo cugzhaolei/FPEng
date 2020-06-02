@@ -100,7 +100,14 @@ namespace testface
             string buf = Marshal.PtrToStringAnsi(ptr);
             Console.WriteLine("user_add_by_buf res is:" + buf);
         }
-
+        /// <summary>
+        /// 人脸注册(传入二进制图片buffer)
+        /// </summary>
+        /// <param name="user_id"></param>
+        /// <param name="group_id"></param>
+        /// <param name="file_path"></param>
+        /// <param name="user_info"></param>
+        /// <returns></returns>
         public string UserAddByBuffer(string user_id, string group_id,string file_path, string user_info ="")
         {
             System.Drawing.Image img = System.Drawing.Image.FromFile(file_path);
@@ -123,7 +130,15 @@ namespace testface
             string buf = Marshal.PtrToStringAnsi(ptr);
             Console.WriteLine("user_add_by_feature res is:" + buf);
         }
-
+        /// <summary>
+        /// 人脸注册(传入特征值)
+        /// </summary>
+        /// <param name="user_id"></param>
+        /// <param name="group_id"></param>
+        /// <param name="fea"></param>
+        /// <param name="fea_len"></param>
+        /// <param name="user_info"></param>
+        /// <returns></returns>
         public string UserAddByFeature(string user_id, string group_id, byte[] fea,int fea_len, string user_info = "")
         {
             // 传入人脸特征值，提取特征值demo，可参考FaceCompare文件中
@@ -144,7 +159,14 @@ namespace testface
             string buf = Marshal.PtrToStringAnsi(ptr);
             Console.WriteLine("user_update res is:" + buf);
         }
-
+        /// <summary>
+        /// 人脸更新
+        /// </summary>
+        /// <param name="user_id"></param>
+        /// <param name="group_id"></param>
+        /// <param name="file_name"></param>
+        /// <param name="user_info"></param>
+        /// <returns></returns>
         public string UserUpdate(string user_id, string group_id, string file_name,string user_info = "")
         {
             IntPtr ptr = user_update(user_id, group_id, file_name, user_info);
@@ -165,7 +187,13 @@ namespace testface
             string buf = Marshal.PtrToStringAnsi(ptr);
             Console.WriteLine("user_update_by_buf res is:" + buf);
         }
-
+        /// <summary>
+        /// 人脸更新(传入二进制图片buffer)
+        /// </summary>
+        /// <param name="user_id"></param>
+        /// <param name="group_id"></param>
+        /// <param name="user_info"></param>
+        /// <returns></returns>
         public string UserUpdateByBuf(string user_id, string group_id, string user_info = "")
         {
             System.Drawing.Image img = System.Drawing.Image.FromFile("G:\\Development\\Application\\testface\\img\\beckham\\8.jpg");
@@ -185,7 +213,13 @@ namespace testface
             string buf = Marshal.PtrToStringAnsi(ptr);
             Console.WriteLine("user_face_delete res is:" + buf);
         }
-
+        /// <summary>
+        /// 人脸删除
+        /// </summary>
+        /// <param name="user_id"></param>
+        /// <param name="group_id"></param>
+        /// <param name="face_token"></param>
+        /// <returns></returns>
         public string UserFaceDelete(string user_id, string group_id, string face_token)
         {
             IntPtr ptr = user_face_delete(user_id, group_id, face_token);
@@ -202,7 +236,12 @@ namespace testface
             string buf = Marshal.PtrToStringAnsi(ptr);
             Console.WriteLine("user_delete res is:" + buf);
         }
-
+        /// <summary>
+        /// 用户删除
+        /// </summary>
+        /// <param name="user_id"></param>
+        /// <param name="group_id"></param>
+        /// <returns></returns>
         public string UserDelete(string user_id, string group_id)
         {
             IntPtr ptr = user_delete(user_id, group_id);
@@ -217,7 +256,11 @@ namespace testface
             string buf = Marshal.PtrToStringAnsi(ptr);
             Console.WriteLine("group_add res is:" + buf);
         }
-
+        /// <summary>
+        /// 组添加
+        /// </summary>
+        /// <param name="group_id"></param>
+        /// <returns></returns>
         public string GroupAdd(string group_id)
         {
             IntPtr ptr = group_add(group_id);
@@ -232,7 +275,11 @@ namespace testface
             string buf = Marshal.PtrToStringAnsi(ptr);
             Console.WriteLine("group_delete res is:" + buf);
         }
-
+        /// <summary>
+        /// 组删除
+        /// </summary>
+        /// <param name="group_id"></param>
+        /// <returns></returns>
         public string GroupDelete(string group_id)
         {
             IntPtr ptr = group_delete(group_id);
@@ -249,7 +296,12 @@ namespace testface
             string buf = Marshal.PtrToStringAnsi(ptr);
             Console.WriteLine("get_user_info res is:" + buf);
         }
-
+        /// <summary>
+        /// 查询用户信息
+        /// </summary>
+        /// <param name="user_id"></param>
+        /// <param name="group_id"></param>
+        /// <returns></returns>
         public string GetUserInfo(string user_id,string group_id)
         {
             IntPtr ptr = get_user_info(user_id, group_id);
@@ -265,7 +317,11 @@ namespace testface
             string buf = Marshal.PtrToStringAnsi(ptr);
             Console.WriteLine("get_user_list res is:" + buf);
         }
-
+        /// <summary>
+        /// 获取用户组列表
+        /// </summary>
+        /// <param name="group_id"></param>
+        /// <returns></returns>
         public string GetUserList(string group_id)
         {
             IntPtr ptr = get_user_list(group_id);
@@ -280,7 +336,10 @@ namespace testface
             string buf = Marshal.PtrToStringAnsi(ptr);
             Console.WriteLine("get_group_list res is:" + buf);
         }
-
+        /// <summary>
+        /// 组列表查询
+        /// </summary>
+        /// <returns></returns>
         public string GetGroupList()
         {
             IntPtr ptr = get_group_list();

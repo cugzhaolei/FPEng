@@ -13815,11 +13815,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Development\\Application\\testface\\Face.Web\\Face.Web.csproj",
+      "projectUniqueName": "G:\\Development\\Application\\testface\\testface\\Face.Web\\Face.Web.csproj",
       "projectName": "Face.Web",
-      "projectPath": "G:\\Development\\Application\\testface\\Face.Web\\Face.Web.csproj",
+      "projectPath": "G:\\Development\\Application\\testface\\testface\\Face.Web\\Face.Web.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "G:\\Development\\Application\\testface\\Face.Web\\obj\\",
+      "outputPath": "G:\\Development\\Application\\testface\\testface\\Face.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13838,8 +13838,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "G:\\Development\\Application\\testface\\testface\\testface.csproj": {
-              "projectPath": "G:\\Development\\Application\\testface\\testface\\testface.csproj"
+            "G:\\Development\\Application\\testface\\testface\\testface\\testface.csproj": {
+              "projectPath": "G:\\Development\\Application\\testface\\testface\\testface\\testface.csproj"
             }
           }
         }
