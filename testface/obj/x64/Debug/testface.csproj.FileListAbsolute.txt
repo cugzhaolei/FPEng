@@ -5,3 +5,10 @@ G:\Development\Application\testface\testface\obj\x64\Debug\testface.csprojAssemb
 G:\Development\Application\testface\testface\obj\x64\Debug\testface.csproj.CoreCompileInputs.cache
 G:\Development\Application\testface\testface\obj\x64\Debug\testface.exe
 G:\Development\Application\testface\testface\obj\x64\Debug\testface.pdb
+G:\Development\Application\testface\testface\testface\bin\x64\Debug\testface.exe.config
+G:\Development\Application\testface\testface\testface\bin\x64\Debug\testface.exe
+G:\Development\Application\testface\testface\testface\bin\x64\Debug\testface.pdb
+G:\Development\Application\testface\testface\testface\obj\x64\Debug\testface.csprojAssemblyReference.cache
+G:\Development\Application\testface\testface\testface\obj\x64\Debug\testface.csproj.CoreCompileInputs.cache
+G:\Development\Application\testface\testface\testface\obj\x64\Debug\testface.exe
+G:\Development\Application\testface\testface\testface\obj\x64\Debug\testface.pdb

@@ -3,28 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
+using Face.Web.Utils;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 
 namespace Face.Web.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class FaceController : ControllerBase
     {
+        public FaceUtil _faceUtil;
+
+        public FaceController(FaceUtil faceUtil)
+        {
+            _faceUtil = faceUtil;
+        }
         private static string ConnString = "server=127.0.0.1;user id=root;pwd=159357;database=`face-app`;SslMode=none;allowuservariables=True;";
 
         // GET: api/Face
-        [HttpGet]
-        public IEnumerable<string> Get()
+        //[Route("api/[controller]/GetUserList/{groupid}")]
+        [HttpGet("{groupId}")]
+        public IEnumerable<string> GetUserList(string groupId)
         {
-            return new string[] { "value1", "value2" };
+            var result = _faceUtil._faceManager.GetUserList(groupId);
+            return new string[] { result };
         }
 
         // GET: api/Face/5
-        [HttpGet("{id}", Name = "Get")]
-        public IActionResult Get(string id)
+        //[Route("api/[controller]/GetUser/{userid}")]
+        [HttpGet("{id}")]
+        public IActionResult GetUser(string id)
         {
             try
             {
@@ -38,7 +48,7 @@ namespace Face.Web.Controllers
                 {
                     data = mySqlConnection.Query("select * from `face-app`.faceinfo Limit 0,100");
                 }
-
+                data = _faceUtil._faceManager.GetUserInfo(id, "testGroup");
                 return data;// Json(data);
             }
             catch (Exception err)
@@ -62,9 +72,13 @@ namespace Face.Web.Controllers
         }
 
         // DELETE: api/ApiWithActions/5
+        //[Route("api/[controller]/Delete/{id}")]
         [HttpDelete("{id}")]
-        public void Delete(string id)
+        public void Delete(string userId,string groupId,string faceToken)
         {
+
+            var result = _faceUtil._faceManager.UserFaceDelete(userId, groupId, faceToken);
+
         }
     }
 }

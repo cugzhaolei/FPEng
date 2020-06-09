@@ -29,3 +29,11 @@ G:\Development\Application\testface\Face.Web\obj\Debug\netcoreapp2.2\Face.Web.dl
 G:\Development\Application\testface\Face.Web\obj\Debug\netcoreapp2.2\Face.Web.pdb
 G:\Development\Application\testface\Face.Web\obj\Debug\netcoreapp2.2\Face.Web.csproj.CopyComplete
 G:\Development\Application\testface\Face.Web\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LayoutFace.g.cshtml.cs
+G:\Development\Application\testface\testface\Face.Web\obj\Debug\netcoreapp2.2\Face.Web.csprojAssemblyReference.cache
+G:\Development\Application\testface\testface\Face.Web\obj\Debug\netcoreapp2.2\Face.Web.csproj.CoreCompileInputs.cache
+G:\Development\Application\testface\testface\Face.Web\obj\Debug\netcoreapp2.2\Face.Web.RazorAssemblyInfo.cache
+G:\Development\Application\testface\testface\Face.Web\obj\Debug\netcoreapp2.2\Face.Web.RazorAssemblyInfo.cs
+G:\Development\Application\testface\testface\Face.Web\obj\Debug\netcoreapp2.2\Face.Web.AssemblyInfoInputs.cache
+G:\Development\Application\testface\testface\Face.Web\obj\Debug\netcoreapp2.2\Face.Web.AssemblyInfo.cs
+G:\Development\Application\testface\testface\Face.Web\obj\Debug\netcoreapp2.2\Face.Web.dll
+G:\Development\Application\testface\testface\Face.Web\obj\Debug\netcoreapp2.2\Face.Web.pdb

@@ -30,5 +30,11 @@ namespace Face.Web.Models
             public string FileName { get; set; }
             public string UserInfo { get; set; }
         }
+
+        public class Info
+        {
+            public string Title { get; set; }
+            public string Version { get; set; }
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
 namespace testface
@@ -60,6 +61,10 @@ namespace testface
         [DllImport("BaiduFaceApi.dll", EntryPoint = "get_group_list", CharSet = CharSet.Ansi
            , CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr get_group_list(int start = 0, int length = 100);
+        // 组获取用户
+        //[DllImport("BaiduFaceApi.dll", EntryPoint = "get_group_users", CharSet = CharSet.Ansi
+        //   , CallingConvention = CallingConvention.Cdecl)]
+        //private static extern IntPtr get_group_users(string groupId, Dictionary<string, object> options = null);
         // 测试人脸注册
         public void test_user_add()
         {
@@ -346,5 +351,12 @@ namespace testface
             string buf = Marshal.PtrToStringAnsi(ptr);
             return ("get_group_list res is:" + buf);
         }
+
+        //public string GetGroupUsers(string id)
+        //{
+        //    IntPtr ptr = get_group_users(id);
+        //    string buf = Marshal.PtrToStringAnsi(ptr);
+        //    return ("get_group_users res is:" + buf);
+        //}
     }
 }

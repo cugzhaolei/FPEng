@@ -9,7 +9,7 @@ using testface;
 
 namespace Face.Web.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -20,20 +20,26 @@ namespace Face.Web.Controllers
             _faceUtil = faceUtil;
         }
         // GET: api/User
-        [HttpGet]
-        public IEnumerable<string> Get()
+        //[Route("api/[controller]/GetUserList/{id}")]
+        [HttpGet("{id}")]
+        public IEnumerable<string> GetUserList(string groupid)
         {
-            return new string[] { "value1", "value2" };
+            var result = _faceUtil._faceManager.GetUserList(groupid);
+
+            return new string[] { result };
         }
 
         // GET: api/User/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        //[Route("api/[controller]/GetUserInfo")]
+        [HttpGet("{id}")]
+        public string GetUserInfo(string userid,string groupid)
         {
-            return "value";
+            var result = _faceUtil._faceManager.GetUserInfo(userid,groupid);
+            return result.ToString();
         }
 
         // POST: api/User
+        //[Route("api/[controller]/Add")]
         [HttpPost]
         public void Post([FromBody] string value)
         {
@@ -55,17 +61,35 @@ namespace Face.Web.Controllers
                 var result = _faceUtil._faceManager.UserAddByBuffer(userId, groupId, userInfo);
             }
         }
+        // POST: api/User
+        //[Route("api/[controller]/Update")]
+        [HttpPost]
+        public void Update([FromBody] string value)
+        {
+            string type = "add";
+            string userId = "";
+            string groupId = "";
+            string fileName = "";
+            string userInfo = "";
+            string filePath = "";
+
+            var result = _faceUtil._faceManager.UserUpdate(userId,groupId,fileName,userInfo);
+            Console.WriteLine("Update", result);
+        }
 
         // PUT: api/User/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(string id, [FromBody] string value)
         {
         }
 
         // DELETE: api/ApiWithActions/5
+        //[Route("api/[controller]/Delete/{userid}&{groupdid}")]
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(string userid,string groupid)
         {
+            var result = _faceUtil._faceManager.UserDelete(userid, groupid);
+            Console.WriteLine("deleteFace", result);
         }
     }
 }

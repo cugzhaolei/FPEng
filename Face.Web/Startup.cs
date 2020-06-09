@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace Face.Web
 {
@@ -43,6 +44,31 @@ namespace Face.Web
                 });
             });
 
+            // 注册Swagger服务
+            //注册Swagger生成器，定义一个和多个Swagger 文档
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info
+                {
+                    Version = "v1",
+                    Title = "Face API",
+                    Description = "Netcore Face API ",
+                    TermsOfService = "None",
+                    Contact = new Contact
+                    {
+                        Name = "april",
+                        Email = string.Empty,
+                        Url = "*"
+                    },
+                    License = new License
+                    {
+                        Name = "许可证名字",
+                        Url = "*"
+                    }
+                });
+                //c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -62,6 +88,16 @@ namespace Face.Web
             app.UseCookiePolicy();
 
             app.UseCors("CorsPolicy");//必须位于UserMvc之前 
+
+            // 启用Swagger中间件
+            app.UseSwagger();
+
+            // 配置SwaggerUI
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "CoreWebApi");
+                //c.RoutePrefix = string.Empty;
+            });
 
             app.UseMvc(routes =>
             {
