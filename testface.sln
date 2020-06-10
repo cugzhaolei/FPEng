@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testface", "testface\testfa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Face.Web.Core", "Face.Web\Face.Web.Core.csproj", "{2414C3EE-4C35-4CD1-947D-0DAB6BB58C0B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Face.Web.Net", "Face.Web.Net\Face.Web.Net.csproj", "{77A877FE-E766-40C7-AC8A-CEFF19C0F91B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,18 @@ Global
 		{2414C3EE-4C35-4CD1-947D-0DAB6BB58C0B}.Release|x64.Build.0 = Debug|Any CPU
 		{2414C3EE-4C35-4CD1-947D-0DAB6BB58C0B}.Release|x86.ActiveCfg = Release|Any CPU
 		{2414C3EE-4C35-4CD1-947D-0DAB6BB58C0B}.Release|x86.Build.0 = Release|Any CPU
+		{77A877FE-E766-40C7-AC8A-CEFF19C0F91B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77A877FE-E766-40C7-AC8A-CEFF19C0F91B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77A877FE-E766-40C7-AC8A-CEFF19C0F91B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{77A877FE-E766-40C7-AC8A-CEFF19C0F91B}.Debug|x64.Build.0 = Debug|Any CPU
+		{77A877FE-E766-40C7-AC8A-CEFF19C0F91B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{77A877FE-E766-40C7-AC8A-CEFF19C0F91B}.Debug|x86.Build.0 = Debug|Any CPU
+		{77A877FE-E766-40C7-AC8A-CEFF19C0F91B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77A877FE-E766-40C7-AC8A-CEFF19C0F91B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77A877FE-E766-40C7-AC8A-CEFF19C0F91B}.Release|x64.ActiveCfg = Release|Any CPU
+		{77A877FE-E766-40C7-AC8A-CEFF19C0F91B}.Release|x64.Build.0 = Release|Any CPU
+		{77A877FE-E766-40C7-AC8A-CEFF19C0F91B}.Release|x86.ActiveCfg = Release|Any CPU
+		{77A877FE-E766-40C7-AC8A-CEFF19C0F91B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
