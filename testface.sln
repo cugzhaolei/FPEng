@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Face.Web.Core", "Face.Web\F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Face.Web.Net", "Face.Web.Net\Face.Web.Net.csproj", "{77A877FE-E766-40C7-AC8A-CEFF19C0F91B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Face.Web.App", "Face.Web.App\Face.Web.App.csproj", "{399F26D7-CE29-4C11-AA64-04CCDA646CEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,18 @@ Global
 		{77A877FE-E766-40C7-AC8A-CEFF19C0F91B}.Release|x64.Build.0 = Release|Any CPU
 		{77A877FE-E766-40C7-AC8A-CEFF19C0F91B}.Release|x86.ActiveCfg = Release|Any CPU
 		{77A877FE-E766-40C7-AC8A-CEFF19C0F91B}.Release|x86.Build.0 = Release|Any CPU
+		{399F26D7-CE29-4C11-AA64-04CCDA646CEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{399F26D7-CE29-4C11-AA64-04CCDA646CEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{399F26D7-CE29-4C11-AA64-04CCDA646CEF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{399F26D7-CE29-4C11-AA64-04CCDA646CEF}.Debug|x64.Build.0 = Debug|Any CPU
+		{399F26D7-CE29-4C11-AA64-04CCDA646CEF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{399F26D7-CE29-4C11-AA64-04CCDA646CEF}.Debug|x86.Build.0 = Debug|Any CPU
+		{399F26D7-CE29-4C11-AA64-04CCDA646CEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{399F26D7-CE29-4C11-AA64-04CCDA646CEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{399F26D7-CE29-4C11-AA64-04CCDA646CEF}.Release|x64.ActiveCfg = Release|Any CPU
+		{399F26D7-CE29-4C11-AA64-04CCDA646CEF}.Release|x64.Build.0 = Release|Any CPU
+		{399F26D7-CE29-4C11-AA64-04CCDA646CEF}.Release|x86.ActiveCfg = Release|Any CPU
+		{399F26D7-CE29-4C11-AA64-04CCDA646CEF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
