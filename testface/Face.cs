@@ -134,7 +134,7 @@ namespace testface
             // 通过特征值比对
             // comp.test_compare_feature();
             // 1:N识别（通过传入图片文件路径和库里的比对)
-            comp.test_identify("G:\\Development\\Application\\testface\\img\\beckham\\1.jpg","beckham","1");
+            comp.test_identify("G:\\Development\\Application\\testface\\img\\beckham\\1.jpg", "test_group", "test_user");
             // 1:N识别（通过传入图片文件二进制buffer和库里的比对)
             //  comp.test_identify_by_buf();
             // 1:N识别（通过传入提取的人脸特征值feature和库里的比对)

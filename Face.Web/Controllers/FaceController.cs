@@ -12,19 +12,27 @@ namespace Face.Web.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
+    /// <summary>
+    /// face management
+    /// </summary>
     public class FaceController : ControllerBase
     {
         public FaceUtil _faceUtil;
 
-        public FaceController(FaceUtil faceUtil)
+        /// <summary>
+        /// face management controller
+        /// </summary>
+        /// <param name="faceUtil"></param>
+        public FaceController()
         {
+            FaceUtil faceUtil = new FaceUtil();
             _faceUtil = faceUtil;
         }
         private static string ConnString = "server=127.0.0.1;user id=root;pwd=159357;database=`face-app`;SslMode=none;allowuservariables=True;";
 
         // GET: api/Face
-        //[Route("api/[controller]/GetUserList/{groupid}")]
-        [HttpGet("{groupId}")]
+        [Route("api/Face/GetUserList")]
+        [HttpGet]
         public IEnumerable<string> GetUserList(string groupId)
         {
             var result = _faceUtil._faceManager.GetUserList(groupId);
@@ -32,8 +40,8 @@ namespace Face.Web.Controllers
         }
 
         // GET: api/Face/5
-        //[Route("api/[controller]/GetUser/{userid}")]
-        [HttpGet("{id}")]
+        [Route("api/Face/GetUser")]
+        [HttpGet]
         public IActionResult GetUser(string id)
         {
             try
@@ -66,19 +74,20 @@ namespace Face.Web.Controllers
         }
 
         // PUT: api/Face/5
-        [HttpPut("{id}")]
+        [HttpPut]
         public void Put(string id, [FromBody] string value)
         {
         }
 
         // DELETE: api/ApiWithActions/5
-        //[Route("api/[controller]/Delete/{id}")]
-        [HttpDelete("{id}")]
-        public void Delete(string userId,string groupId,string faceToken)
+        [Route("api/Face/Delete")]
+        [HttpDelete]
+        public void Delete(string userId, string groupId, string faceToken)
         {
 
             var result = _faceUtil._faceManager.UserFaceDelete(userId, groupId, faceToken);
 
         }
+
     }
 }

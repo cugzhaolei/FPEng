@@ -13,13 +13,14 @@ namespace Face.Web.Core.Controllers
     public class GroupController : ControllerBase
     {
         public FaceUtil _faceUtil;
-        public GroupController(FaceUtil faceUtil)
+        public GroupController()
         {
+            FaceUtil faceUtil = new FaceUtil();
             faceUtil = _faceUtil;
         }
 
         // GET: api/Group
-        //[Route("api/[controller]/GetGroupList")]
+        [Route("api/Group/GetGroupList")]
         [HttpGet]
         public IEnumerable<string> GetGroupList()
         {
@@ -28,19 +29,19 @@ namespace Face.Web.Core.Controllers
         }
 
         // GET: api/Group/5
-        //[Route("api/[controller]/GetGroupUsers/{id}")]
-        [HttpGet("{id}")]
+        [Route("api/Group/GetGroupUsers/{id}")]
+        [HttpGet]
         public string GetGroupUsers(string id)
         {
             var result = _faceUtil._faceManager.GetGroupList();
-            foreach(var face in result)
+            foreach (var face in result)
             {
             }
             return result.ToString();
         }
 
         [HttpPost]
-        //[Route("api/[controller]/Add")]
+        [Route("api/Group/Add")]
         public string Add(string value)
         {
             if (string.IsNullOrEmpty(value))
@@ -69,18 +70,18 @@ namespace Face.Web.Core.Controllers
         }
 
         // PUT: api/Group/5
-        [HttpPut("{id}")]
+        [HttpPut]
         public void Put(int id, [FromBody] string value)
         {
         }
 
         // DELETE: api/ApiWithActions/5
-        //[Route("api/[controller]/Delete/{id}")]
-        [HttpDelete("{id}")]
+        [Route("api/Group/Delete/{id}")]
+        [HttpDelete]
         public void Delete(string id)
         {
-           var result = _faceUtil._faceManager.GroupDelete(id);
-            Console.WriteLine("groupDelete",result);
+            var result = _faceUtil._faceManager.GroupDelete(id);
+            Console.WriteLine("groupDelete", result);
         }
     }
 }

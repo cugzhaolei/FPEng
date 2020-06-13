@@ -102,6 +102,46 @@ namespace testface
             }
         }
         /// <summary>
+        /// 获取人脸特征值(2048个byte）
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        public string GetFaceFeature(string fileName)
+        {
+            try
+            {
+                byte[] fea = new byte[2048];
+                string file_name = fileName == null ? fileName : "G:\\Development\\Application\\testface\\img\\beckham\\2.jpg";
+                int len = 0;
+                IntPtr ptr = get_face_feature(file_name, ref len);
+                if (ptr == IntPtr.Zero)
+                {
+                    Console.WriteLine("get face feature error");
+                    return "error";
+                }
+                else
+                {
+                    if (len == 2048)
+                    {
+                        Console.WriteLine("get face feature success");
+                        Marshal.Copy(ptr, fea, 0, 2048);
+                        return fea.ToString();
+                        // 可保存特征值2048个字节的fea到文件中
+                        // FileUtil.byte2file("G:\\Development\\Application\\testface\\img\\beckham\\fea1.txt",fea, 2048);
+                    }
+                    else
+                    {
+                        Console.WriteLine("get face feature error");
+                        return "error";
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        /// <summary>
         /// 获取人脸特征值 2048Byte
         /// </summary>
         /// <param name="file_name"></param>
@@ -133,6 +173,8 @@ namespace testface
             }
             return result;
         }
+
+
         // 测试获取人脸特征值(2048个byte）
         public void test_get_face_feature_by_buf()
         {
@@ -160,6 +202,7 @@ namespace testface
                 }
             }
         }
+
         /// <summary>
         /// 获取人脸特征值 2048byte
         /// </summary>

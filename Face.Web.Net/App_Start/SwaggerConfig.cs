@@ -61,7 +61,7 @@ namespace Face.Web.Net
                         //c.BasicAuth("basic")
                         //    .Description("Basic HTTP Authentication");
                         //
-						// NOTE: You must also configure 'EnableApiKeySupport' below in the SwaggerUI section
+                        // NOTE: You must also configure 'EnableApiKeySupport' below in the SwaggerUI section
                         //c.ApiKey("apiKey")
                         //    .Description("API Key Authentication")
                         //    .Name("apiKey")
@@ -101,7 +101,7 @@ namespace Face.Web.Net
                         // those comments into the generated docs and UI. You can enable this by providing the path to one or
                         // more Xml comment files.
                         //
-                        //c.IncludeXmlComments(GetXmlCommentsPath());
+                        c.IncludeXmlComments(GetXmlCommentsPath());
 
                         // Swashbuckle makes a best attempt at generating Swagger compliant JSON schemas for the various types
                         // exposed in your API. However, there may be occasions when more control of the output is needed.
@@ -250,6 +250,11 @@ namespace Face.Web.Net
                         //
                         //c.EnableApiKeySupport("apiKey", "header");
                     });
+        }
+
+        protected static string GetXmlCommentsPath()
+        {
+            return System.String.Format(@"{0}\bin\Face.Web.Net.xml", System.AppDomain.CurrentDomain.BaseDirectory);
         }
     }
 }

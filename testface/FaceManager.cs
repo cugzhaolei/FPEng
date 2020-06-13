@@ -61,6 +61,12 @@ namespace testface
         [DllImport("BaiduFaceApi.dll", EntryPoint = "get_group_list", CharSet = CharSet.Ansi
            , CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr get_group_list(int start = 0, int length = 100);
+
+        public FaceManager()
+        {
+            Auth auth = new Auth();
+            auth.SDK_Init();
+        }
         // 组获取用户
         //[DllImport("BaiduFaceApi.dll", EntryPoint = "get_group_users", CharSet = CharSet.Ansi
         //   , CallingConvention = CallingConvention.Cdecl)]

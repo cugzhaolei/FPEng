@@ -36,5 +36,19 @@ namespace Face.Web.Models
             public string Title { get; set; }
             public string Version { get; set; }
         }
+
+        public class PostType
+        {
+            public string Type { get; set; }
+        }
+
+        public class UserAdd:PostType
+        {
+            public string UserId { get; set; }
+            public string GroupId { get; set; }
+            public string FileName { get; set; }
+            public string UserInfo { get; set; }
+            public string FilePath { get; set; }
+        }
     }
 }

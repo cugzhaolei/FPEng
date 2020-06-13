@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Face.Web.App.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,26 +8,45 @@ using System.Web.Http;
 
 namespace Face.Web.Net.Controllers
 {
+    /// <summary>
+    /// Group management 
+    /// </summary>
     public class GroupController : ApiController
     {
         public FaceUtil _faceUtil;
-        public GroupController(FaceUtil faceUtil)
+        /// <summary>
+        /// group management
+        /// </summary>
+        public GroupController()
         {
+            FaceUtil faceUtil = new FaceUtil();
             faceUtil = _faceUtil;
         }
 
+        /// <summary>
+        /// get group list
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Group
-        //[Route("api/[controller]/GetGroupList")]
+        [Route("api/Group/GetGroupList")]
         [HttpGet]
         public IEnumerable<string> GetGroupList()
         {
-            var result = _faceUtil._faceManager.GetGroupList();
+            // var result = _faceUtil._faceManager.GetGroupList();
+            testface.FaceManager faceManager = new testface.FaceManager();
+            var result = faceManager.GetGroupList();
+
             return new string[] { result };
         }
 
+        /// <summary>
+        /// get group users
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: api/Group/5
-        //[Route("api/[controller]/GetGroupUsers/{id}")]
-        [HttpGet("{id}")]
+        [Route("api/Group/GetGroupUsers/{id}")]
+        [HttpGet]
         public string GetGroupUsers(string id)
         {
             var result = _faceUtil._faceManager.GetGroupList();
@@ -36,8 +56,13 @@ namespace Face.Web.Net.Controllers
             return result.ToString();
         }
 
+        /// <summary>
+        /// add user
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         [HttpPost]
-        //[Route("api/[controller]/Add")]
+        [Route("api/Group/Add")]
         public string Add(string value)
         {
             if (string.IsNullOrEmpty(value))
@@ -50,6 +75,12 @@ namespace Face.Web.Net.Controllers
             }
             return "add group success";
         }
+        
+        /// <summary>
+        /// add group
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         // POST: api/Group
         [HttpPost]
         public string Post([FromBody] string value)
@@ -66,14 +97,18 @@ namespace Face.Web.Net.Controllers
         }
 
         // PUT: api/Group/5
-        [HttpPut("{id}")]
+        [HttpPut]
         public void Put(int id, [FromBody] string value)
         {
         }
 
+        /// <summary>
+        /// delete group
+        /// </summary>
+        /// <param name="id"></param>
         // DELETE: api/ApiWithActions/5
-        //[Route("api/[controller]/Delete/{id}")]
-        [HttpDelete("{id}")]
+        [Route("api/Group/Delete/{id}")]
+        [HttpDelete]
         public void Delete(string id)
         {
             var result = _faceUtil._faceManager.GroupDelete(id);
