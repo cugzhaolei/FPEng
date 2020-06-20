@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Face.Web.Utils;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using testface;
+
 using static Face.Web.Models.Models;
 
 namespace Face.Web.Controllers
@@ -23,8 +23,8 @@ namespace Face.Web.Controllers
         /// </summary>
         public UserController()
         {
-            FaceUtil faceUtil = new FaceUtil();
-            _faceUtil = faceUtil;
+            //FaceUtil faceUtil = new FaceUtil();
+            //_faceUtil = faceUtil;
         }
         /// <summary>
         /// get user list info

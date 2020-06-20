@@ -1,5 +1,5 @@
 ﻿using Dapper;
-using Face.Web.App.Utils;
+
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -7,6 +7,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using testface;
+using testface.utils;
 
 namespace Face.Web.Net.Controllers
 {
@@ -18,15 +20,18 @@ namespace Face.Web.Net.Controllers
         /// <summary>
         /// face util
         /// </summary>
-        public FaceUtil _faceUtil;
-
+        public FaceUtil _faceUtil = new FaceUtil();
+        /// <summary>
+        /// facemanager
+        /// </summary>
+        public FaceManager faceManager = new FaceManager();
         /// <summary>
         /// face management controller
         /// </summary>
         public FaceController()
         {
-            FaceUtil faceUtil = new FaceUtil();
-            _faceUtil = faceUtil;
+            // FaceUtil faceUtil = new FaceUtil();
+            // _faceUtil = faceUtil;
         }
         private static string ConnString = "server=127.0.0.1;user id=root;pwd=159357;database=`face-app`;SslMode=none;allowuservariables=True;";
 
@@ -41,6 +46,7 @@ namespace Face.Web.Net.Controllers
         public IEnumerable<string> GetUserList(string groupId)
         {
             var result = _faceUtil._faceManager.GetUserList(groupId);
+            result = faceManager.GetUserList(groupId);
             _faceUtil._auth.SDK_Destory();
             return new string[] { result };
         }
@@ -67,6 +73,8 @@ namespace Face.Web.Net.Controllers
                     data = mySqlConnection.Query("select * from `face-app`.faceinfo Limit 0,100");
                 }
                 data = _faceUtil._faceManager.GetUserInfo(id, "test_group");
+                var result = faceManager.GetUserInfo(id, "test_group");
+
                 _faceUtil._auth.SDK_Destory();
 
                 return data;// Json(data);
@@ -105,9 +113,9 @@ namespace Face.Web.Net.Controllers
         [HttpDelete]
         public void Delete(string userId, string groupId, string faceToken)
         {
+            var result = faceManager.UserFaceDelete(userId, groupId, faceToken);
 
-            var result = _faceUtil._faceManager.UserFaceDelete(userId, groupId, faceToken);
-
+            result = _faceUtil._faceManager.UserFaceDelete(userId, groupId, faceToken);
         }
 
     }

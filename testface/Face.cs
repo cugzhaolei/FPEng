@@ -75,8 +75,8 @@ namespace testface
             // 测试人脸管理
             FaceManager manager = new FaceManager();
             //  人脸注册
-            // manager.test_user_add();
-           manager.test_user_add_by_buf();
+             manager.test_user_add();
+             manager.test_user_add_by_buf();
            //manager.test_user_add_by_feature();
            // 人脸更新
            //manager.test_user_update();
@@ -167,17 +167,17 @@ namespace testface
         {
             Console.WriteLine("in main");
             bool id = false;
-            
+            Console.WriteLine("sdk_init");
             int n = sdk_init(id);
-            if(n != 0)
+            if (n != 0)
             {
                 Console.WriteLine("auth result is {0:D}", n);
                 Console.ReadLine();
             }
-
+            Console.WriteLine("sdk_isauth");
             // 测试是否授权
             bool authed = is_auth();
-            Console.WriteLine("authed res is:"+authed);
+            Console.WriteLine("authed res is:" + authed);
             test_get_device_id();
             long t_begin = TimeUtil.get_time_stamp();
             // 测试获取人脸属性

@@ -1,10 +1,12 @@
-﻿using Face.Web.App.Utils;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using testface;
+using testface.utils;
 
 namespace Face.Web.Net.Controllers
 {
@@ -14,13 +16,14 @@ namespace Face.Web.Net.Controllers
     public class GroupController : ApiController
     {
         public FaceUtil _faceUtil;
+        public FaceManager faceManager = new FaceManager();
         /// <summary>
         /// group management
         /// </summary>
         public GroupController()
         {
             FaceUtil faceUtil = new FaceUtil();
-            faceUtil = _faceUtil;
+            _faceUtil = faceUtil;
         }
 
         /// <summary>

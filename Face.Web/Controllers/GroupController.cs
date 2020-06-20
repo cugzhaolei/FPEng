@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Face.Web.Face;
 using Face.Web.Utils;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,10 +14,12 @@ namespace Face.Web.Core.Controllers
     public class GroupController : ControllerBase
     {
         public FaceUtil _faceUtil;
+        public FaceManager faceManager = new FaceManager();
+
         public GroupController()
         {
-            FaceUtil faceUtil = new FaceUtil();
-            faceUtil = _faceUtil;
+            //FaceUtil faceUtil = new FaceUtil();
+            //faceUtil = _faceUtil;
         }
 
         // GET: api/Group
@@ -24,7 +27,7 @@ namespace Face.Web.Core.Controllers
         [HttpGet]
         public IEnumerable<string> GetGroupList()
         {
-            var result = _faceUtil._faceManager.GetGroupList();
+            var result = faceManager.GetGroupList();
             return new string[] { result };
         }
 
@@ -33,7 +36,7 @@ namespace Face.Web.Core.Controllers
         [HttpGet]
         public string GetGroupUsers(string id)
         {
-            var result = _faceUtil._faceManager.GetGroupList();
+            var result = faceManager.GetGroupList();
             foreach (var face in result)
             {
             }
@@ -46,7 +49,7 @@ namespace Face.Web.Core.Controllers
         {
             if (string.IsNullOrEmpty(value))
             {
-                _faceUtil._faceManager.GroupAdd(value);
+                faceManager.GroupAdd(value);
             }
             else
             {
@@ -60,7 +63,7 @@ namespace Face.Web.Core.Controllers
         {
             if (string.IsNullOrEmpty(value))
             {
-                _faceUtil._faceManager.GroupAdd(value);
+                faceManager.GroupAdd(value);
             }
             else
             {
@@ -80,7 +83,7 @@ namespace Face.Web.Core.Controllers
         [HttpDelete]
         public void Delete(string id)
         {
-            var result = _faceUtil._faceManager.GroupDelete(id);
+            var result = faceManager.GroupDelete(id);
             Console.WriteLine("groupDelete", result);
         }
     }

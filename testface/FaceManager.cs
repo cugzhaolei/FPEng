@@ -64,8 +64,8 @@ namespace testface
 
         public FaceManager()
         {
-            Auth auth = new Auth();
-            auth.SDK_Init();
+            // Auth auth = new Auth();
+            // auth.SDK_Init();
         }
         // 组获取用户
         //[DllImport("BaiduFaceApi.dll", EntryPoint = "get_group_users", CharSet = CharSet.Ansi
@@ -77,7 +77,8 @@ namespace testface
             // 人脸注册
             string user_id = "test_user";
             string group_id = "test_group";
-            string file_name = "G:\\Development\\Application\\testface\\img\\beckham\\2.jpg";
+            string file_path = "G:\\Development\\Application\\testface\\img\\beckham\\5.jpg";
+            string file_name = "G:\\Development\\Application\\testface\\img\\beckham\\7.jpg";
             string user_info = "user_info";
             IntPtr ptr = user_add(user_id, group_id, file_name, user_info);
             string buf = Marshal.PtrToStringAnsi(ptr);
@@ -104,7 +105,8 @@ namespace testface
             // 人脸注册
             string user_id = "test_user";
             string group_id = "test_group";
-            System.Drawing.Image img = System.Drawing.Image.FromFile("G:\\Development\\Application\\testface\\img\\beckham\\4.jpg");
+            string file_path = "G:\\Development\\Application\\testface\\img\\beckham\\5.jpg";
+            System.Drawing.Image img = System.Drawing.Image.FromFile(file_path);
             byte[] img_bytes = ImageUtil.img2byte(img);
             string user_info = "user_info";
             IntPtr ptr = user_add_by_buf(user_id, group_id, img_bytes, img_bytes.Length, user_info);

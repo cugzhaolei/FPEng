@@ -1,4 +1,4 @@
-﻿using Face.Web.App.Utils;
+﻿
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using static Face.Web.App.Models.Models;
+using testface;
+using testface.utils;
+
+using static testface.Models.Models;
 
 namespace Face.Web.Net.Controllers
 {
@@ -16,6 +19,7 @@ namespace Face.Web.Net.Controllers
     public class UserController : ApiController
     {
         public FaceUtil _faceUtil;
+        public FaceManager faceManager = new FaceManager();
         /// <summary>
         /// user controller
         /// </summary>

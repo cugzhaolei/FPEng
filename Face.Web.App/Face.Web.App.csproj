@@ -7,6 +7,16 @@
     <StartupObject />
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Face\**" />
+    <EmbeddedResource Remove="Face\**" />
+    <None Remove="Face\**" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Dapper" Version="1.60.6" />
     <PackageReference Include="MySql.Data" Version="6.10.9" />
@@ -17,6 +27,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="OpenCvSharp">
+      <HintPath>..\testface\bin\x64\Common\OpenCvSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Common">
       <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.netcore.app\2.2.0\ref\netcoreapp2.2\System.Data.Common.dll</HintPath>
     </Reference>

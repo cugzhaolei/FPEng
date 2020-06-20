@@ -45,6 +45,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Face.Web.Net.xml</DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper, Version=1.50.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -273,10 +274,6 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Face.Web.App\Face.Web.App.csproj">
-      <Project>{399f26d7-ce29-4c11-aa64-04ccda646cef}</Project>
-      <Name>Face.Web.App</Name>
-    </ProjectReference>
     <ProjectReference Include="..\testface\testface.csproj">
       <Project>{31dcf4d3-406e-4214-b0c4-b91d6a368715}</Project>
       <Name>testface</Name>
