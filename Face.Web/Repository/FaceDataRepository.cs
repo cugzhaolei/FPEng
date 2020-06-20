@@ -1,13 +1,13 @@
 ﻿using Dapper;
-using Face.Web.Utils;
+using Face.Web.Core.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
-using static Face.Web.Models.Models;
+using static Face.Web.Core.Models.Models;
 
-namespace Face.Web.Repository
+namespace Face.Web.Core.Repository
 {
     public class FaceDataRepository:IFaceDataRepository
     {
@@ -54,8 +54,9 @@ namespace Face.Web.Repository
             using (IDbConnection connection = DBConfig.GetSqlConnection())
             {
                 var data = connection.Query<FaceInfo>("select * from `face-app`.faceinfo where FaceId=@FaceId", faceInfo).FirstOrDefault();
-                return data != null;
+                return data.FaceId != null;
             }
         }
+
     }
 }

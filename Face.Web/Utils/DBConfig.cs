@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Face.Web.Utils
+namespace Face.Web.Core.Utils
 {
     public class DBConfig
     {

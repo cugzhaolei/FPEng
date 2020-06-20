@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Face.Web.Models
+namespace Face.Web.Core.Models
 {
     public class Models
     {

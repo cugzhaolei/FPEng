@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Face.Web.Models;
+using Face.Web.Core.Models;
 
-namespace Face.Web.Controllers
+namespace Face.Web.Core.Controllers
 {
     public class HomeController : Controller
     {

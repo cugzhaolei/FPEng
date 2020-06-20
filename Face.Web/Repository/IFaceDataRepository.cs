@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using static Face.Web.Models.Models;
+using static Face.Web.Core.Models.Models;
 
-namespace Face.Web.Repository
+namespace Face.Web.Core.Repository
 {
     interface IFaceDataRepository
     {

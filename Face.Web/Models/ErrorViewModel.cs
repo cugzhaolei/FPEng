@@ -1,6 +1,6 @@
 using System;
 
-namespace Face.Web.Models
+namespace Face.Web.Core.Models
 {
     public class ErrorViewModel
     {

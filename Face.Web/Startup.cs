@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -9,14 +8,14 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
-using Face.Web.Face;
 
-namespace Face.Web
+namespace Face.Web.Core
 {
     public class Startup
     {
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -51,19 +50,19 @@ namespace Face.Web
             //注册Swagger生成器，定义一个和多个Swagger 文档
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info
+                c.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info
                 {
                     Version = "v1",
                     Title = "Face API",
                     Description = "Netcore Face API ",
                     TermsOfService = "None",
-                    Contact = new Contact
+                    Contact = new Swashbuckle.AspNetCore.Swagger.Contact
                     {
                         Name = "april",
                         Email = string.Empty,
                         Url = "*"
                     },
-                    License = new License
+                    License = new Swashbuckle.AspNetCore.Swagger.License
                     {
                         Name = "许可证名字",
                         Url = "*"
@@ -78,8 +77,7 @@ namespace Face.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            var result = Auth.SDK_Init();
-
+            var result = FaceAI.FaceMain.sdk_Init();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -110,6 +108,8 @@ namespace Face.Web
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            app.UseMvc();
         }
     }
 }

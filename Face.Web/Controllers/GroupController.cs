@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Face.Web.Face;
-using Face.Web.Utils;
+using Face.Web.Core.FaceAI;
+using Face.Web.Core.Utils;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Face.Web.Core.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class GroupController : ControllerBase
     {
@@ -23,42 +23,46 @@ namespace Face.Web.Core.Controllers
         }
 
         // GET: api/Group
-        [Route("api/Group/GetGroupList")]
+        [Route("GetGroupList")]
         [HttpGet]
-        public IEnumerable<string> GetGroupList()
+        public string GetGroupList()
         {
             var result = faceManager.GetGroupList();
-            return new string[] { result };
+            return  result ;
         }
 
         // GET: api/Group/5
-        [Route("api/Group/GetGroupUsers/{id}")]
+        [Route("GetGroupUsers/{id}")]
         [HttpGet]
         public string GetGroupUsers(string id)
         {
-            var result = faceManager.GetGroupList();
-            foreach (var face in result)
-            {
-            }
+            var result = faceManager.GetUserList(id);
+            
             return result.ToString();
         }
-
+        /// <summary>
+        /// 创建用户组
+        /// </summary>
+        /// <param name="value">用户组id，标识一组用户（由数字、字母、下划线组成），长度限制128B</param>
+        /// <returns></returns>
         [HttpPost]
-        [Route("api/Group/Add")]
+        [Route("Add")]
         public string Add(string value)
         {
-            if (string.IsNullOrEmpty(value))
+            if (!string.IsNullOrEmpty(value))
             {
-                faceManager.GroupAdd(value);
+                var result = faceManager.GroupAdd(value);
+                return result;
             }
             else
             {
                 return "no group id";
             }
-            return "add group success";
+            // return "add group success";
         }
         // POST: api/Group
         [HttpPost]
+        [Route("Post")]
         public string Post([FromBody] string value)
         {
             if (string.IsNullOrEmpty(value))
@@ -79,7 +83,7 @@ namespace Face.Web.Core.Controllers
         }
 
         // DELETE: api/ApiWithActions/5
-        [Route("api/Group/Delete/{id}")]
+        [Route("Delete")]
         [HttpDelete]
         public void Delete(string id)
         {
