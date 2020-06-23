@@ -21,7 +21,10 @@ namespace Face.Web.Core.Controllers
             //FaceUtil faceUtil = new FaceUtil();
             //faceUtil = _faceUtil;
         }
-
+        /// <summary>
+        /// 组列表查询
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Group
         [Route("GetGroupList")]
         [HttpGet]
@@ -31,6 +34,11 @@ namespace Face.Web.Core.Controllers
             return  result ;
         }
 
+        /// <summary>
+        /// 用户组列表查询
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: api/Group/5
         [Route("GetGroupUsers/{id}")]
         [HttpGet]
@@ -60,10 +68,15 @@ namespace Face.Web.Core.Controllers
             }
             // return "add group success";
         }
+        /// <summary>
+        /// 创建用户组
+        /// </summary>
+        /// <param name="value">用户组id，标识一组用户（由数字、字母、下划线组成），长度限制128B</param>
+        /// <returns></returns>
         // POST: api/Group
         [HttpPost]
-        [Route("Post")]
-        public string Post([FromBody] string value)
+        [Route("GroupAdd")]
+        public string GroupAdd([FromBody] string value)
         {
             if (string.IsNullOrEmpty(value))
             {
@@ -82,8 +95,12 @@ namespace Face.Web.Core.Controllers
         {
         }
 
+        /// <summary>
+        /// 用户组删除
+        /// </summary>
+        /// <param name="id">用户组id，标识一组用户（由数字、字母、下划线组成），长度限制128B</param>
         // DELETE: api/ApiWithActions/5
-        [Route("Delete")]
+        [Route("GroupDelete")]
         [HttpDelete]
         public void Delete(string id)
         {

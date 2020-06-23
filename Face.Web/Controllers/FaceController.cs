@@ -67,7 +67,7 @@ namespace Face.Web.Core.Controllers
             switch (imageType)
             {
                 case "base64":
-                    result = faceCompare.FaceIdentifyByBuffer(image,groupIdList,userId);
+                    // result = faceCompare.FaceIdentifyByBuffer(image,groupIdList,userId);
                     break;
                 case "url":
                     result = faceCompare.FaceIdentify(image, groupIdList, userId);
@@ -100,6 +100,13 @@ namespace Face.Web.Core.Controllers
             }
         }
 
+        /// <summary>
+        /// 1:N比较，传入图片文件路径
+        /// </summary>
+        /// <param name="file">图片信息，数据大小小于10M，传入图片文件路径</param>
+        /// <param name="user_group">组id列表。默认至少填写一个group_id，从指定的group中进行查找。需要同时查询多个group，用逗号分隔，上限10个</param>
+        /// <param name="user_id">用户id，若指定了某个user，则只会与指定group下的这个user进行对比；若user_id传空字符串” ”，则会与此group下的所有user进行1：N识别</param>
+        /// <returns></returns>
         [Route("FaceIdentify")]
         [HttpPost]
         public string FaceIdentify(string file, string user_group, string user_id)
@@ -115,6 +122,14 @@ namespace Face.Web.Core.Controllers
             }
         }
 
+        /// <summary>
+        /// 1:N比较，传入提取的人脸特征值
+        /// </summary>
+        /// <param name="file_name">传入图片文件路径</param>
+        /// <returns></returns>
+        /// <param name="user_group">传入用户组Id</param>
+        /// <param name="user_id">输入用户Id</param>
+        /// <returns></returns>
         [Route("FaceIdentifyByFeature")]
         [HttpPost]
         public string FaceIdentifyByFeature(string file, string user_group, string user_id)
@@ -130,10 +145,16 @@ namespace Face.Web.Core.Controllers
             }
         }
 
-
+        /// <summary>
+        /// 1:N比较，传入图片文件二进制buffer
+        /// </summary>
+        /// <param name="file">二进制图片信息，数据大小小于10M</param>
+        /// <param name="user_group">组id列表。默认至少填写一个group_id，从指定的group中进行查找。需要同时查询多个group，用逗号分隔，上限10个</param>
+        /// <param name="usr_id">用户id，若指定了某个user，则只会与指定group下的这个user进行对比；若user_id传空字符串” ”，则会与此group下的所有user进行1：N识别</param>
+        /// <returns></returns>
         [Route("FaceIdentifyByBuffer")]
         [HttpPost]
-        public string FaceIdentifyByBuffer(string file, string user_group, string user_id)
+        public string FaceIdentifyByBuffer(byte[] file, string user_group, string user_id)
         {
             try
             {
@@ -146,7 +167,12 @@ namespace Face.Web.Core.Controllers
             }
         }
 
-
+        /// <summary>
+        /// 通过特征值比对（1:1） 对人脸特征值进行比较，可返回人脸特征相似分值（百分制）
+        /// </summary>
+        /// <param name="file1">2048个byte数组的特征值(传图片路径)</param>
+        /// <param name="file2">2048个byte数组的特征值（传图片路径）</param>
+        /// <returns></returns>
         [Route("FaceCompareFeature")]
         [HttpPost]
         public string FaceCompareFeature(string file1, string file2)
@@ -162,10 +188,14 @@ namespace Face.Web.Core.Controllers
             }
         }
 
-
+        /// <summary>
+        /// 1:N比较，传入提取的人脸特征值和已加载的内存中整个库比较
+        /// </summary>
+        /// <param name="file">传入人脸文件特征值</param>
+        /// <returns></returns>
         [Route("FaceIdentifyByFeatureWithAll")]
         [HttpPost]
-        public string FaceIdentifyByFeatureWithAll(string file)
+        public string FaceIdentifyByFeatureWithAll(byte[] file)
         {
             try
             {
@@ -181,7 +211,7 @@ namespace Face.Web.Core.Controllers
 
         [Route("FaceIdentifyByBufferWithAll")]
         [HttpPost]
-        public string FaceIdentifyByBufferWithAll(string file)
+        public string FaceIdentifyByBufferWithAll(byte[] file)
         {
             try
             {
@@ -262,36 +292,54 @@ namespace Face.Web.Core.Controllers
             }
         }
 
-        [Route("FaceMatchByBuffer")]
-        [HttpPost]
-        public string FaceMatchByBuffer(string file1,string file2)
-        {
-            try
-            {
-                string result = faceCompare.FaceMatchByBuffer(file1,file2);
-                return result;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
+        /// <summary>
+        /// 人脸对比接口（传入二进制图片buffer）
+        /// </summary>
+        /// <param name="file1">需要对比的第一张图片，小于10M</param>
+        /// <param name="file2">需要对比的第二张图片，小于10M</param>
+        /// <returns></returns>
+        //[Route("FaceMatchByBuffer")]
+        //[HttpPost]
+        //public string FaceMatchByBuffer(byte[] file1,byte[] file2)
+        //{
+        //    try
+        //    {
+        //        string result = faceCompare.FaceMatchByBuffer(file1,file2);
+        //        return result;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw e;
+        //    }
+        //}
 
-        [Route("FaceMatchByFeature")]
-        [HttpPost]
-        public string FaceMatchByFeature(string file1,string file2)
-        {
-            try
-            {
-                string result = faceCompare.FaceMatchByFeature(file1,file2);
-                return result;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
+        /// <summary>
+        /// 人脸对比接口(传入二进制图片buffer)
+        /// </summary>
+        /// <param name="file1">需要对比的特征值</param>
+        /// <param name="file2">需要对比的第二张图片，小于10M</param>
+        /// <returns></returns>
+        //[Route("FaceMatchByFeature")]
+        //[HttpPost]
+        //public string FaceMatchByFeature(byte[] file1,byte[] file2)
+        //{
+        //    try
+        //    {
+        //        string result = faceCompare.FaceMatchByFeature(file1,file2);
+        //        return result;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw e;
+        //    }
+        //}
 
+        /// <summary>
+        /// 获取用户组下面的用户
+        /// </summary>
+        /// <param name="user_id">用户id（由数字、字母、下划线组成），长度限制128B</param>
+        /// <param name="group_id">用户组id，标识一组用户（由数字、字母、下划线组成），长度限制128B</param>
+        /// <returns></returns>
         // GET: api/Face/5
         [Route("GetUser")]
         [HttpGet]
@@ -320,26 +368,41 @@ namespace Face.Web.Core.Controllers
             // return "value";
         }
 
+        /// <summary>
+        /// 用户注册，该接口支持传入本地图片文件地址。
+        /// </summary>
+        /// <param name="file">	图片信息，须小于10M，传入图片的本地文件地址</param>
+        /// <param name="user_id">用户id，字母、数字、下划线组成，最多128个字符</param>
+        /// <param name="group_id">用户组id，标识一组用户（由数字、字母、下划线组成），长度限制128B。用户组和user_id之间，仅为映射关系。
+        /// 如传入的groupid并未事先创建完毕，则注册用户的同时，直接完成group的创建</param>
+        /// <returns></returns>
         // POST: api/Face
         [Route("Add")]
         [HttpPost]
-        public string FaceAdd(string value,string user_id,string group_id)
+        public string FaceAdd(string file,string user_id,string group_id,string user_info)
         {
             string rand = Guid.NewGuid().ToString().Substring(0, 8);
-            string path = "G:\\Development\\Application\\testface\\img\\beckham\\" + value + ".jpg";
-            user_id = "beckham";
-            group_id = "beckham";
-            string result = faceManager.UserAdd(user_id, group_id, path, rand); //G:\Development\Application\testface\img\beckham
+            // string path = "G:\\Development\\Application\\testface\\img\\beckham\\" + file + ".jpg";
+            // user_id = "beckham";
+            // group_id = "beckham";
+            string result = faceManager.UserAdd(user_id, group_id, file, rand); //G:\Development\Application\testface\img\beckham
             return result;
         }
 
+        /// <summary>
+        /// 人脸图片及信息更新
+        /// </summary>
+        /// <param name="value">图片信息，数据大小应小于10M，传入本地图片文件地址，每次仅支持单张图片</param>
+        /// <param name="user_id">用户id（由数字、字母、下划线组成），长度限制128B</param>
+        /// <param name="group_id">用户组id，标识一组用户（由数字、字母、下划线组成），长度限制128B</param>
+        /// <returns></returns>
         [Route("Update")]
         [HttpPost]
-        public string FaceUpdate(string value, string user_id, string group_id)
+        public string FaceUpdate(string value, string user_id, string group_id,string user_info)
         {
             string rand = Guid.NewGuid().ToString().Substring(0, 8);
-            string path = "G:\\Development\\Application\\testface\\img\\beckham\\" + value + ".jpg";
-            string result = faceManager.UserUpdate(user_id, group_id, path, rand); //G:\Development\Application\testface\img\beckham
+            // string path = "G:\\Development\\Application\\testface\\img\\beckham\\" + value + ".jpg";
+            string result = faceManager.UserUpdate(user_id, group_id, value, user_info); //G:\Development\Application\testface\img\beckham
             return result;
         }
 
@@ -350,12 +413,47 @@ namespace Face.Web.Core.Controllers
         {
         }
 
+        /// <summary>
+        /// 人脸删除
+        /// </summary>
+        /// <param name="userId">用户id（由数字、字母、下划线组成），长度限制128B</param>
+        /// <param name="groupId">用户组id，标识一组用户（由数字、字母、下划线组成），长度限制128B</param>
+        /// <param name="faceToken">人脸id（由数字、字母、下划线组成）长度限制128B</param>
         // DELETE: api/ApiWithActions/5
-        [Route("Delete")]
+        [Route("DeleteFace")]
         [HttpDelete]
-        public void Delete(string userId, string groupId, string faceToken)
+        public string DeleteFace(string userId, string groupId, string faceToken)
         {
-            var result = faceManager.UserFaceDelete(userId, groupId, faceToken);
+            try
+            {
+                var result = faceManager.UserFaceDelete(userId, groupId, faceToken);
+                return result;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 用户删除
+        /// </summary>
+        /// <param name="userId">用户id（由数字、字母、下划线组成），长度限制128B</param>
+        /// <param name="groupId">用户组id，标识一组用户（由数字、字母、下划线组成），长度限制128B</param>
+        /// <returns></returns>
+        [Route("DeleteUser")]
+        [HttpDelete]
+        public string DeleteUser(string userId, string groupId)
+        {
+            try
+            {
+                var result = faceManager.UserDelete(userId, groupId);
+                return result;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         /// <summary>

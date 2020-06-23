@@ -21,6 +21,7 @@ namespace Face.Web.Net.Controllers
         /// face util
         /// </summary>
         public FaceUtil _faceUtil = new FaceUtil();
+
         /// <summary>
         /// facemanager
         /// </summary>
@@ -45,9 +46,9 @@ namespace Face.Web.Net.Controllers
         [HttpGet]
         public IEnumerable<string> GetUserList(string groupId)
         {
-            var result = _faceUtil._faceManager.GetUserList(groupId);
+            var result = faceManager.GetUserList(groupId);
             result = faceManager.GetUserList(groupId);
-            _faceUtil._auth.SDK_Destory();
+            Auth.SDK_Destory();
             return new string[] { result };
         }
         /// <summary>
@@ -72,10 +73,10 @@ namespace Face.Web.Net.Controllers
                 {
                     data = mySqlConnection.Query("select * from `face-app`.faceinfo Limit 0,100");
                 }
-                data = _faceUtil._faceManager.GetUserInfo(id, "test_group");
+                data = faceManager.GetUserInfo(id, "test_group");
                 var result = faceManager.GetUserInfo(id, "test_group");
 
-                _faceUtil._auth.SDK_Destory();
+                Auth.SDK_Destory();
 
                 return data;// Json(data);
             }
@@ -115,7 +116,7 @@ namespace Face.Web.Net.Controllers
         {
             var result = faceManager.UserFaceDelete(userId, groupId, faceToken);
 
-            result = _faceUtil._faceManager.UserFaceDelete(userId, groupId, faceToken);
+            result = faceManager.UserFaceDelete(userId, groupId, faceToken);
         }
 
     }

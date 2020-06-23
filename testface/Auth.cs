@@ -41,12 +41,12 @@ namespace testface
             SDK_Init();
         }
 
-        public void SDK_Destory()
+        public static void SDK_Destory()
         {
             sdk_destroy();
         }
 
-        public void SDK_Init()
+        public static int SDK_Init()
         {
             Console.WriteLine("in main");
             bool id = false;
@@ -55,7 +55,7 @@ namespace testface
             if (n != 0)
             {
                 Console.WriteLine("auth result is {0:D}", n);
-                Console.ReadLine();
+                // Console.ReadLine();
             }
 
             // 测试是否授权
@@ -69,7 +69,8 @@ namespace testface
 
             // sdk_destroy();
             Console.WriteLine("end main");
-            Console.ReadLine();
+            //Console.ReadLine();
+            return n;
         }
     }
 }
